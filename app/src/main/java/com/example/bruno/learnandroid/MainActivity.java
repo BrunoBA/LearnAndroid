@@ -77,6 +77,12 @@ public class MainActivity extends AppCompatActivity {
 
     }
 
+    public void callSensorsList(View view){
+
+        Intent i = new Intent( this, ListSensorsActivity.class);
+        startActivity(i);
+
+    }
 
 
 }
