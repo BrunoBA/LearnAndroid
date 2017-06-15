@@ -84,5 +84,12 @@ public class MainActivity extends AppCompatActivity {
 
     }
 
+    public void callAcelerometroActivity(View view){
+
+        Intent i = new Intent( this, AcelerometroActivity.class);
+        startActivity(i);
+
+    }
+
 
 }
