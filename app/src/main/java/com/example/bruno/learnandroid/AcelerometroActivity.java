@@ -20,6 +20,8 @@ public class AcelerometroActivity extends AppCompatActivity implements SensorEve
     private Sensor sensor;
     private static double SENSIBILIDADE_SENSOR_X = 1.2;
     private static double SENSIBILIDADE_SENSOR_Y = 1.5;
+    private static double MIN_SENSOR_Z = 8;
+    private static double MAX_SENSOR_Z = 12;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -53,7 +55,7 @@ public class AcelerometroActivity extends AppCompatActivity implements SensorEve
         tY.setText("Y: " + sensorY);
         tZ.setText("Z: " + sensorZ);
 
-        if(sensorX > SENSIBILIDADE_SENSOR_X && sensorY > SENSIBILIDADE_SENSOR_Y){
+        if(checkTheConditions(sensorX,sensorY,sensorZ)){
 
 //            Log.i("sensor","X: " + sensorX);
 //            Log.i("sensor","Y: " + sensorY);
@@ -64,6 +66,17 @@ public class AcelerometroActivity extends AppCompatActivity implements SensorEve
             Toast t = Toast.makeText( getApplicationContext(), text, Toast.LENGTH_SHORT);
             t.show();
         }
+    }
+
+    private boolean checkTheConditions(float x, float y, float z){
+
+        if(x > SENSIBILIDADE_SENSOR_X && y > SENSIBILIDADE_SENSOR_Y &&
+                (MAX_SENSOR_Z > z &&  z < MIN_SENSOR_Z) ||
+                (-MAX_SENSOR_Z > z &&  z < -MIN_SENSOR_Z)){
+            return true;
+        }
+        return false;
+
     }
 
     @Override
