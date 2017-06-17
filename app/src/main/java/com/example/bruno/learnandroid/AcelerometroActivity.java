@@ -18,6 +18,8 @@ public class AcelerometroActivity extends AppCompatActivity implements SensorEve
     private static final int TIPO_SENSOR = Sensor.TYPE_ACCELEROMETER;
     private SensorManager sensorManager;
     private Sensor sensor;
+    private static double SENSIBILIDADE_SENSOR_X = 1.2;
+    private static double SENSIBILIDADE_SENSOR_Y = 1.5;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -39,28 +41,29 @@ public class AcelerometroActivity extends AppCompatActivity implements SensorEve
     @Override
     public void onSensorChanged(SensorEvent event) {
 
-        CharSequence text = "onSensorChanged";
-        Toast t = Toast.makeText( getApplicationContext(), text, Toast.LENGTH_SHORT);
-        t.show();
-
-        float sensorX = event.values[0];
+        float sensorX = -event.values[0];
         float sensorY = event.values[1];
         float sensorZ = event.values[2];
 
-        TextView tx = (TextView) findViewById(R.id.tX);
+        TextView tX = (TextView) findViewById(R.id.tX);
         TextView tY = (TextView) findViewById(R.id.tY);
         TextView tZ = (TextView) findViewById(R.id.tZ);
 
-        if(tx != null){
-            tx.setText("X: " + sensorX);
-            tY.setText("Y: " + sensorY);
-            tZ.setText("Z: " + sensorZ);
+        tX.setText("X: " + sensorX);
+        tY.setText("Y: " + sensorY);
+        tZ.setText("Z: " + sensorZ);
+
+        if(sensorX > SENSIBILIDADE_SENSOR_X && sensorY > SENSIBILIDADE_SENSOR_Y){
+
+//            Log.i("sensor","X: " + sensorX);
+//            Log.i("sensor","Y: " + sensorY);
+//            Log.i("sensor","Z: " + sensorZ);
+//            Log.i("sensor","Buraco!");
+
+            CharSequence text = "Buraco!";
+            Toast t = Toast.makeText( getApplicationContext(), text, Toast.LENGTH_SHORT);
+            t.show();
         }
-
-//        CharSequence text = "onSensorChanged";
-//        Toast t = Toast.makeText( getApplicationContext(), text, Toast.LENGTH_SHORT);
-//        t.show();
-
     }
 
     @Override
