@@ -3,20 +3,33 @@ package com.example.bruno.learnandroid;
 import android.hardware.Sensor;
 import android.hardware.SensorEvent;
 import android.hardware.SensorEventListener;
+import android.hardware.SensorManager;
 import android.support.v4.widget.TextViewCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.Log;
 import android.widget.TextView;
 import android.widget.Toast;
+
+import java.util.List;
 
 public class AcelerometroActivity extends AppCompatActivity implements SensorEventListener{
 
     private static final int TIPO_SENSOR = Sensor.TYPE_ACCELEROMETER;
+    private SensorManager sensorManager;
+    private Sensor sensor;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_acelerometro);
+
+        sensorManager = (SensorManager) getSystemService(SENSOR_SERVICE);
+        sensor = sensorManager.getDefaultSensor(TIPO_SENSOR);
+
+        sensorManager.registerListener(this,sensor,SensorManager.SENSOR_DELAY_NORMAL);
+
+        Log.i("teste",sensor.toString());
 
         CharSequence text = "onCreateSensorActivity";
         Toast t = Toast.makeText( getApplicationContext(), text, Toast.LENGTH_SHORT);
