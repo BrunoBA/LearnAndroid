@@ -1,0 +1,55 @@
+{
+  "project_info": {
+    "project_number": "383562899018",
+    "firebase_url": "https://learnandroid-8d27b.firebaseio.com",
+    "project_id": "learnandroid-8d27b",
+    "storage_bucket": "learnandroid-8d27b.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:383562899018:android:7beb85c4aa58e5cb",
+        "android_client_info": {
+          "package_name": "com.example.bruno.learnandroid"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "383562899018-b8f2nl5ekgk4o92trakm7tjf7rtvms3h.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.bruno.learnandroid",
+            "certificate_hash": "9708748af5073898def62d6df3826163c5ac3281"
+          }
+        },
+        {
+          "client_id": "383562899018-35jpvsltrn4imq60uaf7v85fpkeva07j.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAdl8QIX_5T2byqP7wQXBvuG3ASz1o3HdM"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "383562899018-35jpvsltrn4imq60uaf7v85fpkeva07j.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
